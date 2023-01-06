@@ -1,0 +1,322 @@
+% !TeX spellcheck = en_US
+\documentclass[10pt,titlepage,oneside,openany]{report}
+
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=2cm,rmargin=2cm}
+
+%\usepackage{newtxtext}
+\usepackage{enumitem}
+\setenumerate[1]{leftmargin=3em}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsopn}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{mathrsfs}
+\usepackage{mdframed}
+\usepackage{tikz-cd}
+\usepackage{appendix}
+\usepackage{esint}
+\usepackage{mathrsfs}
+\usepackage[normalem]{ulem}
+\usepackage{thmtools, thm-restate}
+\usepackage{hyperref}
+\usepackage{placeins}
+
+\usepackage{verbatim}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{dsfont}
+\usepackage{epstopdf}
+\usepackage{physics}
+\usepackage{setspace}
+\usepackage{epstopdf}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{scalerel,stackengine}
+
+\usepackage{authblk}
+
+\usepackage{soul}
+\usepackage{marginnote}
+\usepackage{todonotes}
+\newcommand{\mytodo}[2][]{{%
+		\let\marginpar\marginnote
+		\reversemarginpar
+		\renewcommand{\baselinestretch}{0.8}%
+		\todo[#1]{#2}}}
+\newcommand{\note}[2][]{\renewcommand{\baselinestretch}{0.8}\todo[#1]{#2}}
+
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+
+
+
+\theoremstyle{remark}
+\newtheorem{Remark}{Remark}[section]
+\newtheorem{Example}{Example}[section]
+
+\theoremstyle{plain}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Lemma}{Lemma}[section]
+\newtheorem{Corollary}{Corollary}[section]
+\newtheorem{Definition}{Definition}[section]
+\newtheorem{Proposition}{Proposition}[section]
+
+\newtheorem{assump}{Assumption}
+\newtheorem{assumpB}{Assumption}
+\renewcommand\theassump{H\arabic{assump}}
+\renewcommand\theassumpB{B\arabic{assumpB}}
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}}
+
+
+\newtheorem{assumptionex}{Assumption}
+\newenvironment{assumption}
+{\pushQED{\qed}\renewcommand{\qedsymbol}{$\bullet$}\assumptionex}
+{\popQED\endassumptionex}
+\newcommand{\doublehookrightarrow}{%
+	\mathrel{\mathrlap{{\mspace{4mu}\lhook}}{\hookrightarrow}}
+}
+
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\diverg}{div}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\RePart}{Re}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\supp}{supp}
+
+\def \qed {\hfill \vrule height6pt width 6pt depth 0pt}
+\newcommand{\al}{\alpha}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\p}{\partial}
+\newcommand{\unity}{{1\!\!\!\:\mathrm{l}}}
+\newcommand{\rightv}{\overset{\rightharpoonup}}
+\newcommand{\harpoon}{\overset{\rightharpoonup}}
+\let\vec\mathbf
+\newcommand{\hsnorm}[1]{\norm{#1}_{\text{HS}}}
+\newcommand{\opnorm}[1]{\norm{#1}_{\text{op}}}
+\newcommand{\trnorm}[1]{\norm{#1}_{\Tr}}
+
+
+
+\AtBeginEnvironment{subappendices}{%
+	\chapter*{Appendix}
+	\addcontentsline{toc}{chapter}{Appendices}
+	\counterwithin{figure}{section}
+	\counterwithin{table}{section}
+}
+
+\allowdisplaybreaks
+
+
+\numberwithin{equation}{section}
+
+
+\stackMath
+\newcommand\reallywidehat[1]{
+	\savestack{\tmpbox}{\stretchto{
+			\scaleto{
+				\scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+				{\rule[-\textheight/2]{1ex}{\textheight}}
+			}{\textheight}
+		}{0.5ex}}
+	\stackon[1pt]{#1}{\tmpbox}
+}
+
+\usepackage[ngerman,english]{babel}
+\usetikzlibrary{babel}
+
+\newenvironment{abstractpage}
+{\cleardoublepage\vspace*{\fill}\thispagestyle{empty}}
+{\vfill\cleardoublepage}
+\newenvironment{abstract0}[1]
+{\bigskip\selectlanguage{#1}%
+	\begin{center}\bfseries\abstractname\end{center}}
+{\par\bigskip}
+
+
+
+
+
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+
+\def\baselinestretch{1.2}
+
+\title{}
+
+
+\author[1]{Matthew Liew\thanks{\href{mailto:mliew@mail.uni-mannheim.de}{\nolinkurl{mliew@mail.uni-mannheim.de} }}}
+
+
+\linespread{1.5} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	\pagenumbering{roman}
+	% lets go for the title page, something like this should be okay
+	\begin{titlepage}
+		\vspace*{1cm}
+		\begin{center}
+			{\Large Theoretical Time-Series Notes}\\
+			\vspace{0.25cm} 
+			{For myself and other mathematicians}\\
+			\vspace{6cm}
+			{Matthew Liew}\\
+			\vspace{5cm}
+			{Jan 2023}
+			
+		\end{center}
+	\end{titlepage} 
+	
+	\clearpage
+
+	\pagenumbering{arabic}
+
+\chapter{ARIMA}\label{intro_thesis}
+
+$ARMA(p,q)$: 
+\[
+	x_t - \phi_1 x_{t-1} - \dots - \phi_p x_{t-p} = w_t + \theta_t w_{t-1} + \dots + \theta_q w_{t-q}.
+\]
+
+\section{Stationary and Autocorrelation}
+
+\begin{Definition}
+	The \textbf{autocovariance} $$\gamma (s,t) := \mathds{E} \left[(x_s - \mu_s) (x_t-\mu_t)\right],$$ and \textbf{cross-covar.} $$\rho_{x,y}(s,t):= \mathds{E}\left[(x_s - \mu_{xs})(y_t - \mu_{ts})\right].$$
+\end{Definition}
+
+\begin{Definition}
+	The \textbf{autocorrelation function} (ACF) is defined as
+	\[
+		\rho_{x} (s,t)  := \frac{\gamma(s,t)}{\sqrt{\gamma(s,s)\gamma(t,t)}},
+	\]
+\end{Definition}
+
+\textbf{Notation}: $\rho_{x}(t, t+h)  \equiv \rho(h)$.
+
+\begin{Definition}[Strictly stationary]
+	For all $k \in \N$, $t_k \in \N$ and $c_k \in \R$. Then the time series is strictly stationary if
+		\[
+		\mathds{P} \big(x_{t_1} \leq c_1, \dots x_{t_k} \leq c_k \big) = \mathds{P} \big(x_{t_1+h} \leq c_1, \dots x_{t_k+h} \leq c_k \big),
+		\]
+		for given probability measure $\mathds{P}$ and constant $h \in \N$.
+\end{Definition}
+\clearpage
+
+\begin{Definition}[Weakly stationary]
+	The time series is strictly stationary if
+	\begin{enumerate}
+		\item $\mu_t = \mathds{E}[x_t]$ is constant, and
+		
+		\item $\gamma(s,t)$ depends only on $|s-t|$. 
+	\end{enumerate}
+\end{Definition}
+
+
+\begin{Lemma}
+	Assume time series is weakly stationary. Using the notation $\gamma (t, t+h) \equiv \gamma (h)$, we have
+	\begin{enumerate}
+		\item $|\gamma (t)| \leq \gamma(0)$,
+		
+		\item $\gamma(h) = \gamma(-h)$.
+	\end{enumerate}
+\end{Lemma}
+
+\begin{proof}
+	\begin{enumerate}
+		\item By Cauchy-Schwarz inequality $|\gamma (t, t+h)|^2 \leq \gamma(t,t) \gamma(t+h,t+h)$ by definition $|\gamma(h)|^2 \leq \gamma(0) \gamma(0)$.
+		
+		\item From definition of covariance we have
+		\begin{align*} 
+			\gamma(h) &= \gamma(t+h-t)\\
+			& = \mathds{E}\left[(x_{t+h}-\mu)(x_t - \mu)\right]\\
+			& = \mathds{E}\left[(x_t - \mu)(x_{t+h}-\mu)\right]\\
+			& = \gamma(t-(t+h)) = \gamma(-h)
+		\end{align*}
+	\end{enumerate}
+\end{proof}
+
+\begin{Example}
+	Suppose $w_t$ for all $t\in N$ is white noise process, i.e. iid $w_t \approx N(0, \sigma_w^2)$. Given two series
+		\begin{align*}
+			x_t &= w_t + w_{t-1},\\
+			y_t &= w_t - w_{t-1}.
+		\end{align*}
+	Then for any $h\in \N$, we get the following for (cross-)covariance:
+	\begin{enumerate}
+		\item \begin{align*}
+					\gamma_x(0) &= \mathds{E}[(w_t + w_{t-1})^2] =  \mathds{E}[w_t^2] + \mathds{E}[w_{t-1}^2] + 2\underbrace{ \mathds{E}[w_t w_{t-1}]}_{=0}\\
+					 & = 2\sigma_w^2,
+					 \\
+					 \gamma_y(0) &= \mathds{E}[(w_t - w_{t-1})^2] =  \mathds{E}[w_t^2] + \mathds{E}[w_{t-1}^2] - 2\underbrace{ \mathds{E}[w_t w_{t-1}]}_{=0}\\
+					 & = 2\sigma_w^2.
+				\end{align*}
+		\item 
+			\begin{align*}
+				\gamma_x (1) &= \mathds{E}\left[(w_t + w_{t-1}) (w_{t+1} + w_t) \right] \\
+						& = \mathds{E}[w_tw_{t+1}] + \mathds{E}[w_t^2] + \mathds{E}[w_{t-1} w_{t+1}] + \mathds{E}[w_{t-1}w_t]\\
+						& = \sigma_w = \gamma_x(-1),
+						\\
+				\gamma_y (1) &=  \mathds{E}[w_tw_{t+1}] - \mathds{E}[w_t^2] + \mathds{E}[w_{t-1} w_{t+1}] - \mathds{E}[w_{t-1}w_t]\\
+					&  = - \sigma_w = \gamma_y(-1).
+			\end{align*}
+		
+		\item $\gamma_{xy}(0) =  \mathds{E}[w_t^2]  -  \mathds{E}[w_{t-1}^2]  0$ and $\gamma_{xy} (1) = cov (x_{t+1}, y_t) = -\sigma_w^2$ and $\gamma_{xy} (-1) = cov (x_{t}, y_{t-1}) = -\sigma_w^2$
+		
+		\item ACF
+		\begin{equation}
+			\rho_{xy} (h) = 
+			\begin{cases}
+				0 & h=0,\\
+				1/2 & h=1,\\
+				-1/2 & h=-1,\\
+				0 & |h| \geq 2
+			\end{cases}
+		\end{equation}
+	Thus the joint time series is stationary.
+	\end{enumerate}
+\end{Example}
+
+\begin{Definition}[Linear Process]
+	$\{x_t\}$ is linear process if 
+	\[
+	x_t = \mu + \sum_{j=-\infty}^\infty \psi_j w_{t-j}, \quad \sum_{j=-\infty}^\infty |\psi_j|< \infty,
+	\]
+	where $w_t$ is white noise.
+\end{Definition}
+
+\begin{Definition}[Gaussian Process]
+	$\{x_t\}$ is Gaussian process if the vector $x := (x_{t_1}, x_{t_2},\dots, x_{t_n})' \in \R^n$ has a multivariate normal distribution with density function
+	\[
+	f(x) = \frac{1}{(2\pi)^{n/2}} \det\big(\Gamma\big)^{-1/2} \exp \left(-\frac{1}{2} (x-\mu)' \Gamma^{-1} (x-\mu) \right),
+	\]
+	where $\mu \in \R^n$ and $\Gamma:= var (x) = \left\{ \gamma(t_i, t_j);\ i,j=1,\dots,n\right\}$.
+\end{Definition}
+
+
+\clearpage
+%\bibliographystyle{alphadin}
+%\bibliography{timeseries}
+%\clearpage
+
+
+\end{document}
